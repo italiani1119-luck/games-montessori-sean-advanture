@@ -1,6 +1,6 @@
 'use strict';
 
-const CACHE = 'sean-v40';
+const CACHE = 'sean-v41';
 const CORE = [
   './',
   'index.html',
