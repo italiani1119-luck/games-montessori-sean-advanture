@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1, user-scalable=no">
+  <meta name="theme-color" content="#fff7ea">
+  <meta name="description" content="Sean Adventure is a Montessori learning game for ages 3 to 6. Children pick a buddy, follow story trails, and play fun quizzes about practical life, senses, numbers, language, and the world.">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="Sean Adventure">
+  <title>Sean Adventure - Play and Learn</title>
+  <link rel="manifest" href="manifest.webmanifest?v=38">
+  <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/icons/icon-192.png">
+  <link rel="preload" href="assets/fonts/Fredoka-Variable.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/Nunito-Variable.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="css/style.css?v=38">
+  <link rel="stylesheet" href="css/adventure.css?v=38">
+</head>
+<body>
+  <div class="app" id="app">
+    <div class="backdrop" aria-hidden="true">
+      <div class="bg-sun"></div>
+      <div class="bg-cloud cloud-1"></div>
+      <div class="bg-cloud cloud-2"></div>
+      <div class="bg-cloud cloud-3"></div>
+      <div class="bg-hill hill-1"></div>
+      <div class="bg-hill hill-2"></div>
+      <div class="bg-dot dot-1"></div>
+      <div class="bg-dot dot-2"></div>
+      <div class="bg-dot dot-3"></div>
+    </div>
+
+    <div class="app-frame" id="frame">
+      <div class="view" id="view" tabindex="-1"></div>
+      <div class="overlay" id="overlay" hidden></div>
+      <div class="sr-only" id="live" aria-live="polite"></div>
+      <nav class="tabbar" id="tabbar" aria-label="Main navigation" hidden>
+        <button class="tab" data-action="tab-map" id="tab-map">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6.5 9 4l6 2.5L20 4v13.5L15 20l-6-2.5L4 20z"/><path d="M9 4v13.5M15 6.5V20"/></svg>
+          <span>Map</span>
+        </button>
+        <button class="tab" data-action="tab-rewards" id="tab-rewards">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="9" r="5"/><path d="M8.6 13.4 7 21l5-2.6L17 21l-1.6-7.6"/></svg>
+          <span>Rewards</span>
+        </button>
+        <button class="tab" data-action="tab-parents" id="tab-parents">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.2s-7.5-4.4-7.5-9.4A4.2 4.2 0 0 1 12 8a4.2 4.2 0 0 1 7.5 2.8c0 5-7.5 9.4-7.5 9.4Z"/></svg>
+          <span>Grown-ups</span>
+        </button>
+      </nav>
+    </div>
+
+    <div class="fx" id="fx" aria-hidden="true"></div>
+  </div>
+
+  <noscript>
+    <p style="padding:2rem;font-family:sans-serif">Sean Adventure needs JavaScript to play.</p>
+  </noscript>
+
+  <script src="js/art.js?v=38"></script>
+  <script src="js/content.js?v=38"></script>
+  <script src="js/audio.js?v=38"></script>
+  <script src="js/app.js?v=38"></script>
+</body>
+</html>
