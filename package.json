@@ -1,0 +1,25 @@
+{
+  "name": "sean-adventure",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Sean Adventure, an offline Montessori learning game for ages 3 to 6.",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "build:web": "node tools/build-www.mjs",
+    "cap:sync": "npm run build:web && cap sync",
+    "cap:add:android": "cap add android",
+    "cap:add:ios": "cap add ios",
+    "open:android": "cap open android",
+    "open:ios": "cap open ios"
+  },
+  "dependencies": {
+    "@capacitor/android": "^8.5.3",
+    "@capacitor/core": "^8.5.3",
+    "@capacitor/ios": "^8.5.3"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "^8.5.3"
+  }
+}

@@ -2,3 +2,6 @@ elevenlabs.key
 *.key
 _contact.png
 .qa/
+node_modules/
+www/
+.tools/

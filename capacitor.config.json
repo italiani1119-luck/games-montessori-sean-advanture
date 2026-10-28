@@ -1,0 +1,12 @@
+{
+  "appId": "com.seanadventure.app",
+  "appName": "Sean Adventure",
+  "webDir": "www",
+  "android": {
+    "backgroundColor": "#fff7ea"
+  },
+  "ios": {
+    "backgroundColor": "#fff7ea",
+    "contentInset": "never"
+  }
+}

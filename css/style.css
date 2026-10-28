@@ -31,8 +31,8 @@
   --font-display: 'Fredoka', 'Trebuchet MS', 'Segoe UI', sans-serif;
   --font-body: 'Nunito', 'Segoe UI', system-ui, sans-serif;
   --frame-w: 460px;
-  --safe-b: env(safe-area-inset-bottom, 0px);
-  --safe-t: env(safe-area-inset-top, 0px);
+  --safe-b: env(safe-area-inset-bottom, var(--safe-area-inset-bottom, 0px));
+  --safe-t: env(safe-area-inset-top, var(--safe-area-inset-top, 0px));
   --space-1: 4px;
   --space-2: 8px;
   --space-3: 12px;
@@ -115,6 +115,7 @@ svg {
 /* ---------- Backdrop (desktop) ---------- */
 .app {
   position: relative;
+  min-height: 100vh;
   min-height: 100dvh;
   display: flex;
   align-items: center;
@@ -215,6 +216,7 @@ svg {
 .app-frame {
   position: relative;
   width: min(100vw, var(--frame-w));
+  height: 100vh;
   height: 100dvh;
   background: var(--cream);
   overflow: hidden;
