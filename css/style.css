@@ -33,6 +33,14 @@
   --frame-w: 460px;
   --safe-b: env(safe-area-inset-bottom, 0px);
   --safe-t: env(safe-area-inset-top, 0px);
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --radius-chip: 16px;
+  --radius-card: 18px;
+  --radius-control: 14px;
 }
 
 * {
@@ -2279,7 +2287,7 @@ svg {
   justify-content: space-between;
   gap: 10px;
   padding-top: calc(16px + var(--safe-t));
-  margin-bottom: 13px;
+  margin-bottom: var(--space-4);
 }
 
 .page-kicker {
@@ -2519,7 +2527,7 @@ svg {
   border: 0;
   border-radius: 0;
   box-shadow: none;
-  padding: 14px 4px 2px;
+  padding: var(--space-4) var(--space-1) var(--space-1);
   margin-bottom: 0;
   border-top: 1.5px solid #ece1cf;
 }
@@ -2561,8 +2569,8 @@ svg {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 10px;
-  padding: 10px 0;
+  gap: var(--space-2);
+  padding: var(--space-3) 0;
   border-bottom: 1px solid #f0e7da;
 }
 
@@ -2611,6 +2619,13 @@ svg {
   transition: background 0.2s;
   flex: 0 0 auto;
   border: 2px solid transparent;
+}
+
+/* 28px visual height, 44px tap target. */
+.switch::before {
+  content: '';
+  position: absolute;
+  inset: -8px -4px;
 }
 
 .switch::after {
@@ -2764,21 +2779,10 @@ svg {
   transform: translateY(1px);
 }
 
-.danger-btn.is-armed {
-  background: #c34a34;
-  border-color: #a83a27;
-  color: #fff;
-}
-
 @media (hover: hover) {
   .danger-btn:hover {
     background: #ffeae4;
     border-color: #eabfb6;
-  }
-
-  .danger-btn.is-armed:hover {
-    background: #b5402c;
-    border-color: #98331f;
   }
 }
 
@@ -2787,7 +2791,7 @@ svg {
   font-size: 10px;
   font-weight: 700;
   color: var(--ink-soft);
-  margin: 14px 0 2px;
+  margin: var(--space-4) 0 var(--space-1);
   line-height: 1.5;
 }
 

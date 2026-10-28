@@ -13,7 +13,6 @@
   const MAX_STARS = THEMES.length * 3;
 
   let db = loadData();
-  let resetTimer = null;
   let speechTimer = null;
   let speechSeq = 0;
   let demo = null;
@@ -1367,12 +1366,13 @@
       const themeStars = data.stars[theme.id] || 0;
       const perfect = !!data.perfect[theme.id];
       if (!unlocked) {
-        return '<div class="sticker-tile locked" style="' + themeStyle(theme) + '">' +
+        return '<button class="sticker-tile locked" type="button" data-action="locked-badge" data-id="' + theme.id + '" style="' + themeStyle(theme) + '" aria-label="Locked badge. Finish ' + esc(theme.trail) + ' to unlock the ' + esc(theme.sticker.name) + ' badge.">' +
           '<span class="lock-badge">' + Art.icon('lock') + '</span>' +
           '<span class="sticker-art">' + Art.art(theme.sticker.art) + '</span>' +
           '<span class="sticker-theme">' + esc(theme.trail) + '</span>' +
           '<span class="sticker-name"><span class="sr-only">Locked. </span>Mystery badge</span>' +
-        '</div>';
+          '<span class="tile-star" aria-hidden="true"></span>' +
+        '</button>';
       }
       return '<button class="sticker-tile" type="button" data-action="open-theme" data-id="' + theme.id + '" style="' + themeStyle(theme) + '" aria-label="' + esc(theme.sticker.name) + ', ' + esc(theme.trail) + ' badge, ' + themeStars + ' of 3 stars' + (perfect ? ', perfect' : '') + '. Replay this trail.">' +
         '<span class="sticker-art">' + Art.art(theme.sticker.art) + '</span>' +
@@ -1507,30 +1507,85 @@
     renderParents(true);
   }
 
-  function resetProgress(button) {
+  function resetProgress() {
     const player = activePlayer();
     if (!player) return;
-    if (!button.classList.contains('is-armed')) {
-      button.classList.add('is-armed');
-      button.textContent = 'Tap once more to reset';
-      clearTimeout(resetTimer);
-      resetTimer = setTimeout(function () {
-        if (!button.isConnected) return;
-        button.classList.remove('is-armed');
-        button.textContent = 'Reset this explorer\'s progress';
-      }, 4000);
-      return;
-    }
-    clearTimeout(resetTimer);
-    player.sparkles = 0;
-    player.last = null;
-    BAND_IDS.forEach(function (bandId) {
-      player.bands[bandId] = { stars: {}, done: {}, perfect: {} };
+    Swal.fire({
+      icon: 'warning',
+      titleText: 'Reset ' + player.name + '\'s progress?',
+      text: 'Stars, badges, and sparkles for this explorer will be cleared. Other explorers keep their progress.',
+      showCancelButton: true,
+      confirmButtonText: 'Reset progress',
+      cancelButtonText: 'Keep progress',
+      reverseButtons: true,
+      focusConfirm: false,
+      focusCancel: false,
+      buttonsStyling: false,
+      customClass: {
+        popup: 'swal-adventure is-danger',
+        title: 'swal-title',
+        htmlContainer: 'swal-body',
+        confirmButton: 'swal-btn swal-confirm is-danger',
+        cancelButton: 'swal-btn swal-cancel',
+        icon: 'swal-icon'
+      }
+    }).then(function (choice) {
+      if (!choice.isConfirmed) return;
+      player.sparkles = 0;
+      player.last = null;
+      BAND_IDS.forEach(function (bandId) {
+        player.bands[bandId] = { stars: {}, done: {}, perfect: {} };
+      });
+      saveData();
+      Sound.tap();
+      setLive('Progress reset for this explorer.');
+      renderParents(true);
+      showToast('Progress reset');
     });
-    saveData();
-    Sound.tap();
-    setLive('Progress reset for this explorer.');
-    renderParents(true);
+  }
+
+  function showToast(title) {
+    Swal.fire({
+      toast: true,
+      position: 'top',
+      icon: 'success',
+      titleText: title,
+      showConfirmButton: false,
+      timer: 3000,
+      timerProgressBar: true,
+      customClass: {
+        popup: 'swal-toast',
+        title: 'swal-toast-title',
+        timerProgressBar: 'swal-toast-timer'
+      }
+    });
+  }
+
+  function lockedBadgeInfo(theme) {
+    Swal.fire({
+      icon: 'info',
+      titleText: theme.trail,
+      text: 'Finish the ' + theme.trail + ' story and quiz, and earn at least one star to unlock the ' + theme.sticker.name + ' badge.',
+      showCancelButton: true,
+      confirmButtonText: 'Open trail',
+      cancelButtonText: 'Not now',
+      reverseButtons: true,
+      focusConfirm: false,
+      focusCancel: false,
+      buttonsStyling: false,
+      customClass: {
+        popup: 'swal-adventure',
+        title: 'swal-title',
+        htmlContainer: 'swal-body',
+        confirmButton: 'swal-btn swal-confirm',
+        cancelButton: 'swal-btn swal-cancel',
+        icon: 'swal-icon'
+      }
+    }).then(function (choice) {
+      if (!choice.isConfirmed) return;
+      Sound.tap();
+      openTheme(theme.id);
+    });
   }
 
   /* ---------- Demo interactions ---------- */
@@ -2133,6 +2188,11 @@
         Sound.tap();
         renderRewards();
         break;
+      case 'locked-badge': {
+        const lockedTheme = getTheme(button.dataset.id);
+        if (lockedTheme) lockedBadgeInfo(lockedTheme);
+        break;
+      }
       case 'set-band':
         changeBand(button.dataset.id);
         break;
@@ -2146,7 +2206,7 @@
         toggleSetting('voice');
         break;
       case 'reset-progress':
-        resetProgress(button);
+        resetProgress();
         break;
       default:
         break;
