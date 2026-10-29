@@ -678,7 +678,7 @@
         '</button>' +
       '</div>';
     } else if (slide.demo === 'phonics') {
-      body += '<div class="letter-row">' + [['B', 'buh'], ['A', 'ah'], ['M', 'mmm']].map(function (pair) {
+      body += '<div class="letter-row">' + (slide.letters || []).map(function (pair) {
         const heard = data.letters.indexOf(pair[0]) >= 0;
         return '<button class="phonics-card' + (heard ? ' is-heard' : '') + '" type="button" data-action="demo-letter" data-letter="' + pair[0] + '">' +
           '<span class="phonics-letter">' + pair[0] + '</span><small>' + pair[1] + '</small>' + (heard ? '<span class="tone-check">' + Art.icon('check') + '</span>' : '') +
@@ -1620,8 +1620,9 @@
     const letter = button.dataset.letter;
     if (!letter || demo.letters.indexOf(letter) >= 0) return;
     demo.letters.push(letter);
-    const sounds = { B: 'buh', A: 'ah', M: 'mmm' };
-    if (!Sound.speak(letter + ' says ' + sounds[letter] + '.')) Sound.playTone('high');
+    const slide = currentStorySlide();
+    const pair = ((slide && slide.letters) || []).find(function (entry) { return entry[0] === letter; });
+    if (pair && !Sound.speak(pair[0] + ' says ' + pair[1] + '.')) Sound.playTone('high');
     Sound.pop();
     if (demo.letters.length >= 3) completeDemo();
     else refreshDemo();

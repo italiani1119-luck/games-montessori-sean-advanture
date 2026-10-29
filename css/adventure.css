@@ -3965,3 +3965,675 @@
     transition: none !important;
   }
 }
+
+/* =========================================================
+   UI system — one border, one radius, one depth.
+   Every surface and control in the game uses these tokens so
+   screens stay in one visual language: flat fills, a single
+   neutral stroke, a 4px bottom edge for depth, and no glows,
+   translucent outlines, or glossy highlights.
+   ========================================================= */
+
+:root {
+  --ui-border: #e5e5e5;
+  --ui-edge: #d4d4d4;
+  --ui-ink: #3c3c3c;
+  --ui-radius: 16px;
+  --ui-radius-sm: 12px;
+  --ui-radius-pill: 999px;
+  --ui-line: 2px;
+  --ui-depth: 4px;
+}
+
+/* ---------- Remove decorative glow and photo-frame chrome ---------- */
+
+.bg-sun,
+.bg-cloud,
+.scene-sun,
+.scene-cloud,
+.scene-world::after,
+.scene-senses::after {
+  box-shadow: none;
+}
+
+.bg-sun {
+  opacity: 0.55;
+}
+
+.scene {
+  border: var(--ui-line) solid var(--ui-border);
+  border-bottom-width: var(--ui-depth);
+  border-bottom-color: var(--ui-edge);
+  border-radius: var(--ui-radius);
+  box-shadow: none;
+  background: #fff;
+  padding: 3px;
+}
+
+.scene-item {
+  border-radius: var(--ui-radius-sm);
+  box-shadow: none;
+  background: rgba(255, 253, 248, 0.94);
+}
+
+.who-art,
+.buddy-preview-art,
+.player-art {
+  border: var(--ui-line) solid var(--ui-border);
+  box-shadow: none;
+  border-radius: var(--ui-radius-sm);
+}
+
+/* ---------- Surfaces ---------- */
+
+.story-sheet,
+.q-card,
+.demo-panel,
+.who-card,
+.stop-btn,
+.profile-chip,
+.buddy-preview,
+.reward-hero,
+.shelf-stats,
+.parent-card,
+.player-card,
+.scr-rewards .sticker-tile,
+.add-card {
+  background: #fff;
+  border: var(--ui-line) solid var(--ui-border);
+  border-bottom: var(--ui-depth) solid var(--ui-edge);
+  border-radius: var(--ui-radius);
+  box-shadow: none;
+}
+
+.stop-btn,
+.scr-rewards .sticker-tile,
+.who-card,
+.profile-chip,
+.add-card {
+  transition: transform 0.12s ease, border-color 0.16s ease;
+}
+
+.stop-btn:active,
+.scr-rewards .sticker-tile:active,
+.who-card:active,
+.profile-chip:active {
+  transform: translateY(2px);
+  border-bottom-width: var(--ui-line);
+  border-bottom-color: var(--ui-border);
+}
+
+.add-card {
+  border-style: dashed;
+}
+
+.trail-stop.is-current .stop-btn,
+.who-card.is-active,
+.band-option.is-selected,
+.buddy-option.is-selected {
+  border-color: var(--bc);
+  border-bottom-color: var(--bc);
+  box-shadow: none;
+}
+
+.name-input {
+  border: var(--ui-line) solid var(--ui-border);
+  border-bottom: var(--ui-depth) solid var(--ui-edge);
+  border-radius: var(--ui-radius);
+  box-shadow: none;
+}
+
+.name-input:focus {
+  border-color: var(--bc);
+  box-shadow: none;
+  outline: none;
+}
+
+/* ---------- Chips ---------- */
+
+.story-chip,
+.quiz-spark,
+.fb-reward,
+.demo-success,
+.write-done-chip,
+.guide-name,
+.mini-speak,
+.guide-speak,
+.stop-num,
+.perfect-flag {
+  border: var(--ui-line) solid var(--ui-border);
+  border-radius: var(--ui-radius-pill);
+  background: #fff;
+  box-shadow: none;
+}
+
+.story-chip {
+  color: var(--deep);
+}
+
+.mini-speak,
+.guide-speak {
+  border-radius: var(--ui-radius-sm);
+}
+
+.stop-num {
+  border-color: var(--ui-border);
+  border-bottom-width: var(--ui-depth);
+  border-bottom-color: var(--ui-edge);
+  border-radius: 50%;
+  background: var(--tint);
+}
+
+.perfect-flag {
+  border-radius: var(--ui-radius-sm);
+}
+
+/* ---------- Controls ---------- */
+
+.btn {
+  border-radius: var(--ui-radius);
+  font-weight: 800;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  font-size: 14px;
+}
+
+.btn-primary {
+  background: var(--deep);
+  border: var(--ui-line) solid var(--deep);
+  border-bottom: var(--ui-depth) solid color-mix(in srgb, var(--deep) 72%, #000);
+  box-shadow: none;
+  text-shadow: none;
+}
+
+.btn-primary:active {
+  transform: translateY(2px);
+  border-bottom-width: var(--ui-line);
+  border-bottom-color: var(--deep);
+  box-shadow: none;
+}
+
+.btn-soft {
+  background: #fff;
+  color: var(--deep);
+  border: var(--ui-line) solid var(--ui-border);
+  border-bottom: var(--ui-depth) solid var(--ui-edge);
+  box-shadow: none;
+  font-size: 12.5px;
+}
+
+.btn-soft:active {
+  transform: translateY(2px);
+  border-bottom-width: var(--ui-line);
+  border-bottom-color: var(--ui-border);
+  box-shadow: none;
+}
+
+.adv-icon-btn,
+.story-back {
+  border: var(--ui-line) solid var(--ui-border);
+  border-bottom: var(--ui-depth) solid var(--ui-edge);
+  border-radius: var(--ui-radius-sm);
+  box-shadow: none;
+  background: #fff;
+}
+
+.adv-icon-btn:active,
+.story-back:active {
+  transform: translateY(2px);
+  border-bottom-width: var(--ui-line);
+  border-bottom-color: var(--ui-border);
+  box-shadow: none;
+}
+
+.demo-btn {
+  border: var(--ui-line) solid var(--ui-border);
+  border-bottom: var(--ui-depth) solid var(--ui-edge);
+  border-radius: var(--ui-radius-sm);
+  box-shadow: none;
+}
+
+.demo-btn:active {
+  transform: translateY(2px);
+  border-bottom-width: var(--ui-line);
+  border-bottom-color: var(--ui-border);
+  box-shadow: none;
+}
+
+.demo-btn.is-ghost {
+  border-color: var(--ui-border);
+  border-bottom-color: var(--ui-edge);
+  box-shadow: none;
+}
+
+.opt {
+  border: var(--ui-line) solid var(--ui-border);
+  border-bottom: var(--ui-depth) solid var(--ui-edge);
+  border-radius: var(--ui-radius);
+  box-shadow: none;
+  background: #fff;
+}
+
+.opt:active {
+  transform: translateY(2px);
+  border-bottom-width: var(--ui-line);
+  border-bottom-color: var(--ui-border);
+}
+
+.opt.is-correct {
+  border-color: #58cc02;
+  border-bottom-color: #46a302;
+}
+
+.opt.is-wrong {
+  border-color: #ff4b4b;
+  border-bottom-color: #ea2b2b;
+}
+
+.tone-box,
+.phonics-card,
+.counter-slot {
+  border: var(--ui-line) solid var(--ui-border);
+  border-bottom: var(--ui-depth) solid var(--ui-edge);
+  border-radius: var(--ui-radius);
+  box-shadow: none;
+}
+
+.phonics-card {
+  background: #fff;
+}
+
+.phonics-card.is-heard,
+.tone-box.is-heard,
+.demo-panel.is-done {
+  border-color: #58cc02;
+  border-bottom-color: #46a302;
+  box-shadow: none;
+}
+
+.write-paper {
+  border: var(--ui-line) solid var(--ui-border);
+  border-bottom: var(--ui-depth) solid var(--ui-edge);
+  border-radius: var(--ui-radius);
+  box-shadow: none;
+}
+
+.write-paper.is-writing {
+  border-style: solid;
+  border-color: var(--bc);
+  border-bottom-color: var(--bc);
+}
+
+.write-meter {
+  border: var(--ui-line) solid var(--ui-border);
+  box-shadow: none;
+}
+
+.write-start {
+  box-shadow: none;
+}
+
+/* ---------- Segmented controls and toggles ---------- */
+
+.band-tabs {
+  background: #fff;
+  border: var(--ui-line) solid var(--ui-border);
+  border-bottom: var(--ui-depth) solid var(--ui-edge);
+  border-radius: var(--ui-radius);
+  padding: 4px;
+}
+
+.band-tab {
+  border-radius: var(--ui-radius-sm);
+  font-weight: 800;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+}
+
+.band-tab.is-active {
+  background: var(--bd);
+  color: #fff;
+  box-shadow: none;
+}
+
+.band-option,
+.buddy-option {
+  border: var(--ui-line) solid var(--ui-border);
+  border-bottom: var(--ui-depth) solid var(--ui-edge);
+  border-radius: var(--ui-radius);
+  box-shadow: none;
+}
+
+.band-option.is-selected,
+.buddy-option.is-selected {
+  background: #fff;
+}
+
+.band-option.is-selected {
+  background: var(--bt);
+}
+
+.buddy-option.is-selected {
+  background: var(--bt);
+}
+
+.switch {
+  border: var(--ui-line) solid var(--ui-border);
+  border-bottom-width: 3px;
+  border-bottom-color: var(--ui-edge);
+  background: #e5e5e5;
+  border-radius: var(--ui-radius-pill);
+}
+
+.switch[aria-checked='true'] {
+  background: #58cc02;
+  border-color: #46a302;
+}
+
+.switch::after {
+  box-shadow: none;
+  border: var(--ui-line) solid var(--ui-border);
+}
+
+.switch[aria-checked='true']::after {
+  border-color: #46a302;
+}
+
+/* ---------- Tab bar ---------- */
+
+.tabbar {
+  background: #fff;
+  border-top: var(--ui-line) solid var(--ui-border);
+}
+
+.tab {
+  border-radius: var(--ui-radius-sm);
+  font-weight: 800;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  font-size: 10px;
+}
+
+.tab::before {
+  border-radius: var(--ui-radius-sm);
+}
+
+.tab.is-active::before {
+  background: #fff0e2;
+}
+
+/* ---------- Feedback sheet ---------- */
+
+.feedback-sheet {
+  border-radius: var(--ui-radius) var(--ui-radius) 0 0;
+  border-top-width: var(--ui-depth);
+  box-shadow: 0 -2px 0 rgba(0, 0, 0, 0.06);
+  background: #fff;
+}
+
+.fb-face {
+  border: var(--ui-line) solid var(--ui-border);
+  border-radius: var(--ui-radius-sm);
+}
+
+/* ---------- Dialogs ---------- */
+
+.swal-adventure.swal2-popup {
+  border: var(--ui-line) solid var(--ui-border);
+  border-bottom: var(--ui-depth) solid var(--ui-edge);
+  border-radius: var(--ui-radius);
+  box-shadow: none;
+  background: #fff;
+}
+
+.swal-btn {
+  border-radius: var(--ui-radius-sm);
+  border: var(--ui-line) solid var(--ui-border);
+  border-bottom: var(--ui-depth) solid var(--ui-edge);
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  box-shadow: none;
+}
+
+.swal-confirm {
+  background: var(--deep, #4b3f8f);
+  border-color: var(--deep, #4b3f8f);
+  border-bottom-color: color-mix(in srgb, var(--deep, #4b3f8f) 72%, #000);
+}
+
+.swal-confirm:active {
+  transform: translateY(2px);
+  border-bottom-width: var(--ui-line);
+  box-shadow: none;
+}
+
+:where(button, [role='switch'], .opt, .phonics-card, .stop-btn):focus-visible {
+  outline: 3px solid #1cb0f6;
+  outline-offset: 2px;
+}
+
+/* ---------- State and leftovers ---------- */
+
+.guide-name {
+  background: var(--deep);
+  border-color: var(--deep);
+  color: #fff;
+}
+
+.guide-bubble {
+  border-color: var(--ui-border);
+  box-shadow: none;
+}
+
+.fb-face {
+  border-color: var(--ui-border);
+  box-shadow: none;
+}
+
+.buddy-note {
+  border: var(--ui-line) solid var(--ui-border);
+  border-bottom: var(--ui-depth) solid var(--ui-edge);
+  border-radius: var(--ui-radius);
+  box-shadow: none;
+}
+
+.continue-card.start-card {
+  border-radius: var(--ui-radius);
+  border-bottom: 5px solid color-mix(in srgb, var(--deep) 82%, #000);
+  box-shadow: none;
+}
+
+.story-step {
+  border: var(--ui-line) solid var(--ui-border);
+  border-radius: var(--ui-radius-pill);
+  background: #fff;
+}
+
+.lock-badge {
+  border: var(--ui-line) solid var(--ui-border);
+}
+
+.scr-rewards .sticker-tile.locked {
+  background: #f7f7f7;
+  border-color: var(--ui-border);
+  border-bottom-color: var(--ui-edge);
+  box-shadow: none;
+}
+
+.scr-rewards .sticker-tile.locked:active {
+  box-shadow: none;
+}
+
+.shelf-stat + .shelf-stat {
+  border-left: 1px solid var(--ui-border);
+}
+
+.scene-item {
+  box-shadow: none;
+}
+
+.trail-stop.is-current .stop-btn {
+  border-color: var(--deep);
+  border-bottom-color: var(--deep);
+}
+
+.trail-stop.is-current .stop-num,
+.map-seg.is-current:not(.is-done) {
+  box-shadow: none;
+}
+
+.welcome-guide {
+  border: var(--ui-line) solid var(--ui-border);
+  border-bottom: var(--ui-depth) solid var(--ui-edge);
+  border-radius: var(--ui-radius);
+  box-shadow: none;
+}
+
+.player-actions .btn {
+  border-radius: var(--ui-radius-sm);
+  box-shadow: none;
+}
+
+.danger-btn {
+  border: var(--ui-line) solid #ff4b4b;
+  border-bottom: var(--ui-depth) solid #ea2b2b;
+  border-radius: var(--ui-radius-sm);
+}
+
+.prog-fill,
+.step-fill,
+.map-seg.is-done {
+  background: var(--c);
+}
+
+.map-seg {
+  border-radius: var(--ui-radius-pill);
+}
+
+/* ---------- Leftovers: kill last tinted chrome and motion rings ---------- */
+
+.trail-stop.is-current .stop-num {
+  animation: none;
+  box-shadow: none;
+}
+
+.scene-item {
+  filter: none;
+}
+
+.scene.has-photo .scene-item {
+  border: var(--ui-line) solid var(--ui-border);
+  border-bottom: var(--ui-depth) solid var(--ui-edge);
+  border-radius: var(--ui-radius);
+  background: #fff;
+  box-shadow: none;
+}
+
+.scr-rewards .lock-badge {
+  border-color: var(--ui-border);
+  box-shadow: none;
+}
+
+.parent-card.is-quiet {
+  border-top: var(--ui-line) solid var(--ui-border);
+}
+
+.setting-row {
+  border-bottom-color: var(--ui-border);
+}
+
+.curriculum-mini {
+  border-bottom-color: var(--ui-border);
+}
+
+.feedback-sheet {
+  box-shadow: none;
+}
+
+.result-buddy {
+  border: var(--ui-line) solid var(--ui-border);
+  border-bottom: var(--ui-depth) solid var(--ui-edge);
+  box-shadow: none;
+}
+
+/* ---------- Result surfaces ---------- */
+
+.scr-result .result-hero {
+  width: 100%;
+  padding: 15px 14px 14px;
+  background: #fff;
+  border: var(--ui-line) solid var(--ui-border);
+  border-bottom: var(--ui-depth) solid var(--ui-edge);
+  border-radius: var(--ui-radius);
+}
+
+.result-kicker {
+  border: var(--ui-line) solid var(--ui-border);
+  border-radius: var(--ui-radius-pill);
+  background: #fff;
+  padding: 4px 11px;
+}
+
+.chest-btn {
+  background: #fff;
+  border: var(--ui-line) solid var(--ui-border);
+  border-bottom: var(--ui-depth) solid var(--ui-edge);
+  border-radius: var(--ui-radius);
+  box-shadow: none;
+}
+
+.chest-btn:active {
+  transform: translateY(2px);
+  border-bottom-width: var(--ui-line);
+  border-bottom-color: var(--ui-border);
+}
+
+.badge-reveal {
+  border: var(--ui-line) solid var(--ui-border);
+  border-bottom: var(--ui-depth) solid var(--ui-edge);
+  border-radius: var(--ui-radius);
+  box-shadow: none;
+}
+
+.badge-art {
+  border-color: var(--ui-border);
+}
+
+.reward-summary {
+  background: #fff;
+  border: var(--ui-line) solid var(--ui-border);
+  border-bottom: var(--ui-depth) solid var(--ui-edge);
+  border-radius: var(--ui-radius);
+}
+
+.reward-total {
+  border-top: 1px solid var(--ui-border);
+}
+
+.opt.is-correct,
+.opt.is-wrong {
+  box-shadow: none;
+}
+
+.feedback-sheet.is-good .fb-face,
+.feedback-sheet.oops .fb-face,
+.feedback-sheet.is-wrong .fb-face {
+  border-color: var(--ui-border);
+}
+
+.write-start {
+  box-shadow: none;
+}
+
+.demo-hint {
+  border: var(--ui-line) solid var(--ui-border);
+  background: #fff;
+  border-radius: var(--ui-radius-pill);
+}
+
+.write-meter {
+  background: #ececec;
+}
+
+

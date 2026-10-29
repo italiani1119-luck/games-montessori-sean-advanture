@@ -22,7 +22,8 @@ const force = flag('force');
 const limit = Number(option('limit', '0')) || 0;
 
 const MODEL = 'eleven_multilingual_v2';
-const VOICE_PREFERENCES = ['Jessica', 'Laura', 'Alice', 'Matilda', 'Charlotte', 'Lily', 'Sarah', 'Aria', 'Elli'];
+const VOICE_PREFERENCES = ['Liam', 'Jessica', 'Laura', 'Alice', 'Matilda', 'Charlotte', 'Lily', 'Sarah', 'Aria', 'Elli'];
+const VOICE_NAMES = { TX3LPaxmHKxFdv7VOQHJ: 'Liam' };
 const VOICE_SETTINGS = {
   stability: 0.34,
   similarity_boost: 0.82,
@@ -57,10 +58,12 @@ function collectTexts() {
     theme.story.forEach((slide) => {
       add(slide.narration);
       add(slide.success);
+      (slide.letters || []).forEach((pair) => add(pair[0] + ' says ' + pair[1] + '.'));
     });
     add('You unlocked the ' + theme.sticker.name + ' badge!');
   });
   add('No badge this time. Try the trail again and earn a star.');
+  add('Voice narration is on.');
 
   Object.values(globalThis.PRAISE || {}).forEach((pool) => {
     (pool || []).forEach(add);
@@ -120,7 +123,7 @@ async function api(url, key, init) {
 
 async function pickVoice(key) {
   const override = option('voice', process.env.ELEVENLABS_VOICE_ID || '');
-  if (override) return { voice_id: override, name: 'custom' };
+  if (override) return { voice_id: override, name: VOICE_NAMES[override] || 'custom' };
   const response = await api('https://api.elevenlabs.io/v1/voices', key, { method: 'GET' });
   const data = await response.json();
   const voices = data.voices || [];

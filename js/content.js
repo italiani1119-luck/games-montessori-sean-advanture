@@ -1118,254 +1118,182 @@
   /* ---------- Language ---------- */
 
   const LANGUAGE_CORE = [
-    img('Which picture shows a cat?', [
+    img('Which picture starts with the /k/ sound?', [
       o('cat', 'cat', 'Cat'),
       o('dog', 'dog', 'Dog'),
-      o('ant', 'ant', 'Ant')
-    ], 'cat', 'Meow! The cat says meow. Cat starts with C.'),
-    img('Which picture shows a dog?', [
+      o('sun', 'sun', 'Sun')
+    ], 'cat', 'C says /k/. Cat begins with /k/. C-c-cat!'),
+    img('Which picture starts with the /d/ sound?', [
       o('dog', 'dog', 'Dog'),
       o('cat', 'cat', 'Cat'),
       o('frog', 'frog', 'Frog')
-    ], 'dog', 'Woof! The dog wags its tail. Dog starts with D.'),
-    img('Which picture shows the sun?', [
+    ], 'dog', 'D says /d/. Dog begins with /d/. D-d-dog!'),
+    img('Which picture starts with the /s/ sound?', [
       o('sun', 'sun', 'The sun'),
       o('moon', 'moon', 'The moon'),
-      o('star', 'star', 'A star')
-    ], 'sun', 'The sun is bright and warm. Sun starts with S.'),
-    img('Which picture shows the moon?', [
+      o('tree', 'tree', 'A tree')
+    ], 'sun', 'S says /s/. Sun begins with /s/. Sss!'),
+    img('Which picture starts with the /m/ sound?', [
       o('moon', 'moon', 'The moon'),
       o('sun', 'sun', 'The sun'),
-      o('cloud', 'cloud', 'A cloud')
-    ], 'moon', 'The moon glows at night. Moon starts with M.'),
-    letter('Which letter starts "Cat"?', [
-      lt('C'), lt('D'), lt('B')
-    ], 'C', 'Cat starts with C. C says /k/. C-c-cat!', { promptArt: 'cat' }),
-    letter('Which letter starts "Dog"?', [
-      lt('D'), lt('B'), lt('P')
-    ], 'D', 'Dog starts with D. D says /d/, like a drum.', { promptArt: 'dog' }),
-    letter('Which letter starts "Sun"?', [
-      lt('S'), lt('M'), lt('N')
-    ], 'S', 'Sun starts with S. S says /s/, like a snake.', { promptArt: 'sun' }),
-    letter('Which letter starts "Apple"?', [
+      o('butterfly', 'butterfly', 'A butterfly')
+    ], 'moon', 'M says /m/. Moon begins with /m/. Mmm!'),
+    letter('Which letter says /k/?', [
+      lt('C'), lt('M'), lt('S')
+    ], 'C', 'C says /k/, like cat. C-c-cat!'),
+    letter('Which letter says /d/?', [
+      lt('D'), lt('B'), lt('T')
+    ], 'D', 'D says /d/, like dog. D-d-dog!'),
+    letter('Which letter says /s/?', [
+      lt('S'), lt('A'), lt('N')
+    ], 'S', 'S says /s/, like sun. Sss!'),
+    letter('Which letter says /a/?', [
       lt('A'), lt('E'), lt('O')
-    ], 'A', 'Apple starts with A. A says /a/, like ah!', { promptArt: 'apples' }),
-    img('Which picture starts with the /b/ sound?', [
+    ], 'A', 'A says /a/, like apple. Ah!'),
+    img('Which picture begins with the /b/ sound?', [
       o('bell', 'bell', 'Bell'),
       o('cat', 'cat', 'Cat'),
       o('sun', 'sun', 'Sun')
-    ], 'bell', 'Bell begins with /b/. Ding-dong!'),
-    img('Which picture starts with the /m/ sound?', [
-      o('moon', 'moon', 'Moon'),
-      o('cat', 'cat', 'Cat'),
-      o('tree', 'tree', 'Tree')
-    ], 'moon', 'Moon begins with /m/. Mmm!'),
-    img('Which picture starts with the /s/ sound?', [
-      o('star', 'star', 'Star'),
-      o('cat', 'cat', 'Cat'),
-      o('dog', 'dog', 'Dog')
-    ], 'star', 'Star begins with /s/. Sss!'),
-    img('Which picture starts with the /t/ sound?', [
+    ], 'bell', 'B says /b/. Bell begins with /b/. Ding-dong!'),
+    img('Which picture begins with the /t/ sound?', [
       o('tree', 'tree', 'Tree'),
       o('dog', 'dog', 'Dog'),
       o('ant', 'ant', 'Ant')
-    ], 'tree', 'Tree begins with /t/. T-t-tree!'),
-    img('Which picture shows an elephant?', [
-      o('elephant', 'elephant', 'Elephant'),
-      o('cat', 'cat', 'Cat'),
-      o('frog', 'frog', 'Frog')
-    ], 'elephant', 'Elephant! Big ears and a long trunk.'),
-    img('Which picture shows a teddy bear?', [
-      o('teddy', 'teddy', 'Teddy bear'),
-      o('rock', 'rock', 'Rock'),
-      o('tree', 'tree', 'Tree')
-    ], 'teddy', 'Teddy is soft and cuddly.'),
-    img('Which picture shows a flower?', [
+    ], 'tree', 'T says /t/. Tree begins with /t/. T-t-tree!'),
+    img('Which picture begins with the /f/ sound?', [
       o('flower', 'flower', 'Flower'),
       o('cloud', 'cloud', 'Cloud'),
       o('rock', 'rock', 'Rock')
-    ], 'flower', 'Flower! Smell the petals.'),
-    word('Which word says "cat"?', [
+    ], 'flower', 'F says /f/. Flower begins with /f/. Fff!'),
+    img('Which picture begins with the /n/ sound?', [
+      o('nest', 'nest', 'Nest'),
+      o('dog', 'dog', 'Dog'),
+      o('cloud', 'cloud', 'Cloud')
+    ], 'nest', 'N says /n/. Nest begins with /n/. Nnn!'),
+    letter('Which letter starts "Cat"?', [
+      lt('C'), lt('D'), lt('B')
+    ], 'C', 'Cat starts with /k/. C says /k/.', { promptArt: 'cat' }),
+    letter('Which letter starts "Dog"?', [
+      lt('D'), lt('B'), lt('P')
+    ], 'D', 'Dog starts with /d/. D says /d/.', { promptArt: 'dog' }),
+    letter('Which letter starts "Sun"?', [
+      lt('S'), lt('M'), lt('N')
+    ], 'S', 'Sun starts with /s/. S says /s/.', { promptArt: 'sun' }),
+    letter('Which letter starts "Apple"?', [
+      lt('A'), lt('E'), lt('O')
+    ], 'A', 'Apple starts with /a/. A says /a/.', { promptArt: 'apples' }),
+    word('Which word begins with the /k/ sound?', [
       wr('cat', 'cat'),
       wr('dog', 'dog'),
       wr('sun', 'sun')
-    ], 'cat', 'C-a-t spells cat. Meow!'),
-    word('Which word says "sun"?', [
-      wr('sun', 'sun'),
+    ], 'cat', 'Cat begins with /k/. C says /k/.'),
+    word('Which word begins with the /m/ sound?', [
       wr('moon', 'moon'),
-      wr('star', 'star')
-    ], 'sun', 'S-u-n spells sun. Shine!'),
-    letter('Which one is a letter?', [
-      lt('A'), lt('3'), lt('7')
-    ], 'A', 'A is a letter. 3 and 7 are numbers.'),
-    letter('Which one is the lowercase b?', [
-      lt('b'), lt('d'), lt('p')
-    ], 'b', 'Little b has a tall back and a round tummy.'),
-    img('Which picture starts with the /f/ sound?', [
-      o('flower', 'flower', 'Flower'),
-      o('cat', 'cat', 'Cat'),
-      o('sun', 'sun', 'Sun')
-    ], 'flower', 'Flower begins with /f/. Fff!')
+      wr('cat', 'cat'),
+      wr('tree', 'tree')
+    ], 'moon', 'Moon begins with /m/. M says /m/.'),
+    letter('Which letter says /t/?', [
+      lt('T'), lt('N'), lt('S')
+    ], 'T', 'T says /t/, like tree. T-t-tree!'),
+    img('Which picture begins with the /r/ sound?', [
+      o('rock', 'rock', 'Rock'),
+      o('sun', 'sun', 'The sun'),
+      o('cat', 'cat', 'Cat')
+    ], 'rock', 'R says /r/. Rock begins with /r/. Rrr!')
   ];
 
   const LANGUAGE_MID = [
-    img('Which picture starts with the /f/ sound?', [
-      o('frog', 'frog', 'Frog'),
-      o('cat', 'cat', 'Cat'),
-      o('moon', 'moon', 'Moon')
-    ], 'frog', 'Frog begins with /f/. Fff-rog!'),
     img('Which picture starts with the /p/ sound?', [
       o('panda', 'panda', 'Panda'),
       o('sun', 'sun', 'Sun'),
       o('tree', 'tree', 'Tree')
-    ], 'panda', 'Panda begins with /p/. Puh!'),
+    ], 'panda', 'P says /p/. Panda begins with /p/. Puh!'),
     img('Which picture starts with the /k/ sound?', [
       o('camel', 'camel', 'Camel'),
       o('star', 'star', 'Star'),
       o('ant', 'ant', 'Ant')
-    ], 'camel', 'Camel begins with /k/. Cuh!'),
-    img('Which picture starts with the /n/ sound?', [
-      o('nest', 'nest', 'Nest'),
-      o('dog', 'dog', 'Dog'),
-      o('cloud', 'cloud', 'Cloud')
-    ], 'nest', 'Nest begins with /n/. Nnn!'),
+    ], 'camel', 'C says /k/. Camel begins with /k/. Cuh!'),
     img('Which picture starts with the /w/ sound?', [
       o('whale', 'whale', 'Whale'),
       o('apples', 'apples', 'Apples'),
       o('tree', 'tree', 'Tree')
-    ], 'whale', 'Whale begins with /w/. Www!'),
+    ], 'whale', 'W says /w/. Whale begins with /w/. Www!'),
+    img('Which picture starts with the /g/ sound?', [
+      o('globe', 'globe', 'Globe'),
+      o('sun', 'sun', 'Sun'),
+      o('cat', 'cat', 'Cat')
+    ], 'globe', 'G says /g/. Globe begins with /g/. Guh!'),
+    img('Which picture starts with the /l/ sound?', [
+      o('lamp', 'lamp', 'Lamp'),
+      o('moon', 'moon', 'Moon'),
+      o('tree', 'tree', 'Tree')
+    ], 'lamp', 'L says /l/. Lamp begins with /l/. Lll!'),
     letter('Which letter ends "Cat"?', [
       lt('T'), lt('A'), lt('C')
-    ], 'T', 'Cat ends with T. Listen: ca-t.', { word: 'Cat' }),
+    ], 'T', 'Cat ends with /t/. Listen: ca-t.', { word: 'Cat' }),
     letter('Which letter ends "Dog"?', [
       lt('G'), lt('D'), lt('O')
-    ], 'G', 'Dog ends with G. Listen: do-g.', { word: 'Dog' }),
+    ], 'G', 'Dog ends with /g/. Listen: do-g.', { word: 'Dog' }),
     letter('Which letter ends "Sun"?', [
       lt('N'), lt('S'), lt('U')
-    ], 'N', 'Sun ends with N. Listen: su-n.', { word: 'Sun' }),
+    ], 'N', 'Sun ends with /n/. Listen: su-n.', { word: 'Sun' }),
     letter('Which letter starts "Tree"?', [
       lt('T'), lt('D'), lt('B')
-    ], 'T', 'Tree starts with T. T-t-tree!', { promptArt: 'tree' }),
+    ], 'T', 'Tree starts with /t/. T-t-tree!', { promptArt: 'tree' }),
     letter('Which letter starts "Moon"?', [
       lt('M'), lt('N'), lt('W')
-    ], 'M', 'Moon starts with M. Mmm!', { promptArt: 'moon' }),
+    ], 'M', 'Moon starts with /m/. Mmm!', { promptArt: 'moon' }),
     word('Which word rhymes with "cat"?', [
       wr('hat', 'hat'),
       wr('dog', 'dog'),
       wr('sun', 'sun')
-    ], 'hat', 'Cat and hat both end with -at. Rhyme time!'),
+    ], 'hat', 'Cat and hat rhyme. Both end with /at/.'),
     word('Which word rhymes with "sun"?', [
       wr('fun', 'fun'),
       wr('cat', 'cat'),
       wr('bus', 'bus')
-    ], 'fun', 'Sun and fun both end with -un. Fun in the sun!'),
+    ], 'fun', 'Sun and fun rhyme. Both end with /un/.'),
     word('Which word rhymes with "star"?', [
       wr('car', 'car'),
       wr('fish', 'fish'),
       wr('tree', 'tree')
-    ], 'car', 'Star and car both end with -ar. Vroom!'),
+    ], 'car', 'Star and car rhyme. Both end with /ar/.'),
     number('How many syllables are in "panda"?', [
       num(1), num(2), num(3)
-    ], '2', 'Clap it: pan-da. Two claps!', { word: 'panda', note: 'pan - da' }),
+    ], '2', 'Clap the sounds: pan-da. Two claps!', { word: 'panda', note: 'pan - da' }),
     number('How many syllables are in "butterfly"?', [
       num(2), num(3), num(4)
-    ], '3', 'Clap it: but-ter-fly. Three claps!', { word: 'butterfly', note: 'but - ter - fly' }),
+    ], '3', 'Clap the sounds: but-ter-fly. Three claps!', { word: 'butterfly', note: 'but - ter - fly' }),
     number('How many syllables are in "elephant"?', [
       num(2), num(3), num(4)
-    ], '3', 'Clap it: el-e-phant. Three claps!', { word: 'elephant', note: 'el - e - phant' }),
-    letter('Which one is the uppercase letter for d?', [
-      lt('d'), lt('D'), lt('b')
-    ], 'D', 'Big D and little d are a pair.'),
-    word('Which word says "dog"?', [
-      wr('dog', 'dog'),
-      wr('bog', 'bog'),
-      wr('dig', 'dig')
-    ], 'dog', 'D-o-g spells dog. Woof!'),
-    word('Which word says "moon"?', [
+    ], '3', 'Clap the sounds: el-e-phant. Three claps!', { word: 'elephant', note: 'el - e - phant' }),
+    letter('Which letter says /p/?', [
+      lt('P'), lt('B'), lt('D')
+    ], 'P', 'P says /p/, like panda. Puh!'),
+    word('Which word begins with the /f/ sound?', [
+      wr('frog', 'frog'),
       wr('moon', 'moon'),
-      wr('man', 'man'),
-      wr('soon', 'soon')
-    ], 'moon', 'M-o-o-n spells moon. Glow!'),
-    letter('Which letter starts "Frog"?', [
-      lt('F'), lt('T'), lt('R')
-    ], 'F', 'Frog starts with F. Fff-rog!', { promptArt: 'frog' }),
-    img('Which picture starts with the /b/ sound?', [
-      o('ball', 'ball', 'Ball'),
-      o('star', 'star', 'Star'),
-      o('ant', 'ant', 'Ant')
-    ], 'ball', 'Ball begins with /b/. Boing!'),
-    letter('Which letter starts "Ant"?', [
-      lt('A'), lt('E'), lt('I')
-    ], 'A', 'Ant starts with A. A says /a/, like ah!', { promptArt: 'ant' })
-  ];
-
-  const LANGUAGE_HIGH = [
-    word('Which word is the opposite of "big"?', [
-      wr('small', 'small'),
-      wr('tall', 'tall'),
-      wr('fast', 'fast')
-    ], 'small', 'Big and small are opposites.'),
-    word('Which word is the opposite of "hot"?', [
-      wr('cold', 'cold'),
-      wr('warm', 'warm'),
-      wr('wet', 'wet')
-    ], 'cold', 'Hot and cold are opposites.'),
-    word('Which word is the opposite of "up"?', [
-      wr('down', 'down'),
-      wr('over', 'over'),
-      wr('open', 'open')
-    ], 'down', 'Up and down are opposites.'),
-    word('Which word is the opposite of "loud"?', [
-      wr('quiet', 'quiet'),
-      wr('fast', 'fast'),
-      wr('happy', 'happy')
-    ], 'quiet', 'Loud and quiet are opposites.'),
-    word('Which word is spelled correctly?', [
-      wr('fish', 'fish'),
-      wr('fihs', 'fihs'),
-      wr('fsih', 'fsih')
-    ], 'fish', 'Fish is spelled f-i-s-h. Fish swim in water.'),
-    word('Which word spells "moon"?', [
-      wr('moon', 'moon'),
-      wr('mone', 'mone'),
-      wr('monn', 'monn')
-    ], 'moon', 'M-o-o-n spells moon.'),
-    word('Which word spells "tree"?', [
-      wr('tree', 'tree'),
-      wr('tere', 'tere'),
-      wr('trea', 'trea')
-    ], 'tree', 'T-r-e-e spells tree.'),
-    letter('Which letter comes right after M?', [
-      lt('N'), lt('L'), lt('P')
-    ], 'N', 'The alphabet goes L, M, N. N comes after M.'),
-    letter('Which letter comes right before P?', [
-      lt('O'), lt('N'), lt('Q')
-    ], 'O', 'The alphabet goes O, P. O comes before P.'),
-    letter('Which letter ends "Sock"?', [
-      lt('K'), lt('C'), lt('T')
-    ], 'K', 'Sock ends with K. Listen: so-ck.', { word: 'sock' }),
-    letter('Which letter ends "Frog"?', [
-      lt('G'), lt('D'), lt('B')
-    ], 'G', 'Frog ends with G. Listen: fro-g.', { word: 'frog' }),
-    letter('Which letter starts "Whale"?', [
-      lt('W'), lt('H'), lt('L')
-    ], 'W', 'Whale starts with W. Www!', { promptArt: 'whale' }),
+      wr('tree', 'tree')
+    ], 'frog', 'Frog begins with /f/. F says /f/.'),
     word('Which word ends with the /n/ sound?', [
       wr('sun', 'sun'),
       wr('cat', 'cat'),
-      wr('book', 'book')
-    ], 'sun', 'Sun ends with /n/. Listen: su-n.'),
-    word('Which word ends with the /r/ sound?', [
-      wr('star', 'star'),
-      wr('fish', 'fish'),
       wr('tree', 'tree')
-    ], 'star', 'Star ends with /r/. Listen: sta-r.'),
-    number('How many syllables are in "caterpillar"?', [
-      num(3), num(4), num(5)
-    ], '4', 'Clap it: cat-er-pil-lar. Four claps!', { word: 'caterpillar', note: 'cat - er - pil - lar' }),
-    number('How many syllables are in "banana"?', [
-      num(2), num(3), num(4)
-    ], '3', 'Clap it: ba-na-na. Three claps!', { word: 'banana', note: 'ba - na - na' }),
+    ], 'sun', 'Sun ends with /n/. Listen: su-n.'),
+    word('Which word rhymes with "dog"?', [
+      wr('log', 'log'),
+      wr('cat', 'cat'),
+      wr('tree', 'tree')
+    ], 'log', 'Dog and log rhyme. Both end with /og/.'),
+    letter('Which letter ends "Frog"?', [
+      lt('G'), lt('D'), lt('B')
+    ], 'G', 'Frog ends with /g/. Listen: fro-g.', { word: 'Frog' }),
+    letter('Which letter starts "Ant"?', [
+      lt('A'), lt('E'), lt('I')
+    ], 'A', 'Ant starts with /a/. A says /a/.', { promptArt: 'ant' })
+  ];
+
+  const LANGUAGE_HIGH = [
     img('Which picture starts with the /fr/ blend?', [
       o('frog', 'frog', 'Frog'),
       o('star', 'star', 'Star'),
@@ -1381,32 +1309,102 @@
       o('sprout', 'sprout', 'Sprout'),
       o('flower', 'flower', 'Flower')
     ], 'star', 'Star begins with /st/. Sss-tt!'),
-    word('Which word rhymes with "cake"?', [
-      wr('lake', 'lake'),
-      wr('bike', 'bike'),
+    img('Which picture starts with the /tr/ blend?', [
+      o('tree', 'tree', 'Tree'),
+      o('frog', 'frog', 'Frog'),
+      o('cloud', 'cloud', 'Cloud')
+    ], 'tree', 'Tree begins with /tr/. Ttt-rr!'),
+    img('Which picture begins with the letters wh?', [
+      o('whale', 'whale', 'Whale'),
+      o('apples', 'apples', 'Apples'),
+      o('star', 'star', 'Star')
+    ], 'whale', 'Whale begins with wh. The letters w and h say /w/.'),
+    img('Which picture starts with the /fl/ blend?', [
+      o('flower', 'flower', 'Flower'),
+      o('frog', 'frog', 'Frog'),
+      o('tree', 'tree', 'Tree')
+    ], 'flower', 'Flower begins with /fl/. Fff-ll!'),
+    word('Which word has the short /a/ sound?', [
+      wr('cat', 'cat'),
+      wr('cake', 'cake'),
+      wr('car', 'car')
+    ], 'cat', 'Cat has the short /a/ sound: c-a-t.'),
+    word('Which word has the long /a/ sound?', [
+      wr('cake', 'cake'),
+      wr('cat', 'cat'),
+      wr('cap', 'cap')
+    ], 'cake', 'Cake has the long /a/ sound: c-a-k-e.'),
+    word('Which word begins with the /sh/ sound?', [
+      wr('ship', 'ship'),
+      wr('sun', 'sun'),
+      wr('tree', 'tree')
+    ], 'ship', 'Ship begins with /sh/. Shh!'),
+    word('Which word begins with the /ch/ sound?', [
+      wr('chair', 'chair'),
+      wr('cat', 'cat'),
+      wr('tree', 'tree')
+    ], 'chair', 'Chair begins with /ch/. Ch-ch!'),
+    word('Which word begins with the /th/ sound?', [
+      wr('thumb', 'thumb'),
+      wr('tree', 'tree'),
+      wr('sun', 'sun')
+    ], 'thumb', 'Thumb begins with /th/. Th-th!'),
+    letter('Which letters say /sh/?', [
+      lt('sh'), lt('ch'), lt('th')
+    ], 'sh', 'S and h together say /sh/, like ship.'),
+    letter('Which letters say /ch/?', [
+      lt('ch'), lt('sh'), lt('th')
+    ], 'ch', 'C and h together say /ch/, like chair.'),
+    letter('Which letters say /th/?', [
+      lt('th'), lt('sh'), lt('ch')
+    ], 'th', 'T and h together say /th/, like thumb.'),
+    word('Which word ends with the /n/ sound?', [
+      wr('sun', 'sun'),
+      wr('cat', 'cat'),
       wr('book', 'book')
-    ], 'lake', 'Cake and lake both end with -ake.'),
+    ], 'sun', 'Sun ends with /n/. Listen: su-n.'),
+    word('Which word ends with the /r/ sound?', [
+      wr('star', 'star'),
+      wr('fish', 'fish'),
+      wr('tree', 'tree')
+    ], 'star', 'Star ends with /r/. Listen: sta-r.'),
+    letter('Which letter is silent in "cake"?', [
+      lt('e'), lt('k'), lt('c')
+    ], 'e', 'The e is silent. It makes the a say /ay/.', { word: 'cake' }),
+    letter('Which letter is silent in "knee"?', [
+      lt('k'), lt('n'), lt('e')
+    ], 'k', 'The k is silent. We say /nee/.', { word: 'knee' }),
     word('Which word rhymes with "tree"?', [
       wr('bee', 'bee'),
       wr('train', 'train'),
       wr('boat', 'boat')
-    ], 'bee', 'Tree and bee both end with -ee.'),
-    word('Which word means "very small"?', [
-      wr('tiny', 'tiny'),
-      wr('huge', 'huge'),
-      wr('tall', 'tall')
-    ], 'tiny', 'Tiny means very small. Like a baby ant!'),
-    letter('Which letter completes the word cat?', [
-      lt('a'), lt('o'), lt('e')
-    ], 'a', 'C-a-t spells cat.', { word: 'c?t' }),
-    letter('Which letter completes the word sun?', [
-      lt('u'), lt('a'), lt('i')
-    ], 'u', 'S-u-n spells sun.', { word: 's?n' }),
-    word('Which word is a naming word?', [
-      wr('cat', 'cat'),
-      wr('jump', 'jump'),
-      wr('fast', 'fast')
-    ], 'cat', 'A naming word names a person, place, or thing. Cat is a name!')
+    ], 'bee', 'Tree and bee rhyme. Both end with /ee/.'),
+    word('Which word rhymes with "cake"?', [
+      wr('lake', 'lake'),
+      wr('bike', 'bike'),
+      wr('book', 'book')
+    ], 'lake', 'Cake and lake rhyme. Both end with /ake/.'),
+    word('Which word rhymes with "light"?', [
+      wr('night', 'night'),
+      wr('net', 'net'),
+      wr('lot', 'lot')
+    ], 'night', 'Light and night rhyme. Both end with /ight/.'),
+    number('How many syllables are in "caterpillar"?', [
+      num(3), num(4), num(5)
+    ], '4', 'Clap it: cat-er-pil-lar. Four claps!', { word: 'caterpillar', note: 'cat - er - pil - lar' }),
+    number('How many syllables are in "banana"?', [
+      num(2), num(3), num(4)
+    ], '3', 'Clap it: ba-na-na. Three claps!', { word: 'banana', note: 'ba - na - na' }),
+    word('Which word begins with the /spr/ blend?', [
+      wr('sprout', 'sprout'),
+      wr('star', 'star'),
+      wr('sun', 'sun')
+    ], 'sprout', 'Sprout begins with /spr/. Sss-pr!'),
+    word('Which word begins with the /fl/ blend?', [
+      wr('flower', 'flower'),
+      wr('frog', 'frog'),
+      wr('fish', 'fish')
+    ], 'flower', 'Flower begins with /fl/. Fff-ll!')
   ];
 
   const WRITING = {
@@ -2480,6 +2478,7 @@
           text: 'Tap B, A, and M. Listen to each sound and say it with me.',
           narration: 'Tap the cards B, A, and M. Buh, ah, mmm. Say each sound with me!',
           demo: 'phonics',
+          letters: [['B', 'buh'], ['A', 'ah'], ['M', 'mmm']],
           success: 'Buh, ah, mmm. Your ears know three letter sounds.'
         },
         {
