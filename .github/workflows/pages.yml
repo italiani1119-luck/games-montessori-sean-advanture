@@ -39,6 +39,7 @@ jobs:
         run: |
           mkdir -p _site
           cp -R index.html manifest.webmanifest sw.js css js vendor assets _site/
+          rm -rf _site/assets/images/game-montessori/source
 
       - uses: actions/upload-pages-artifact@v3
         if: steps.pages.outputs.build_type == 'workflow'
