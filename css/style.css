@@ -2950,6 +2950,32 @@ svg {
   }
 }
 
+/* Wide screens: scale the whole frame up (zoom keeps the phone proportions and
+   the text crisp) instead of showing a small phone in the middle of the page.
+   Taller windows get more zoom; short laptop windows stop at a lower step so the
+   quiz and story keep their layout height instead of being squeezed. */
+@supports (zoom: 1.35) {
+  @media (min-width: 900px) and (min-height: 600px) {
+    .app-frame {
+      zoom: 1.15;
+      width: var(--frame-w);
+      height: calc(min(920px, 100dvh - 40px) / 1.15);
+    }
+  }
+  @media (min-width: 900px) and (min-height: 850px) {
+    .app-frame {
+      zoom: 1.25;
+      height: calc(min(920px, 100dvh - 40px) / 1.25);
+    }
+  }
+  @media (min-width: 900px) and (min-height: 970px) {
+    .app-frame {
+      zoom: 1.35;
+      height: calc(min(920px, 100dvh - 40px) / 1.35);
+    }
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

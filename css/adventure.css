@@ -606,6 +606,24 @@
   margin-top: 2px;
 }
 
+/* The welcome form is taller than short frames (small phones, zoomed desktop
+   windows), so the start button would open below the fold. Pinning it to the
+   bottom edge keeps the one action that matters reachable; when the form fits,
+   sticky leaves it in its normal place. */
+.scr-welcome .start-btn {
+  position: sticky;
+  bottom: var(--space-2);
+  z-index: 5;
+  filter: drop-shadow(0 10px 16px rgba(80, 55, 60, 0.25));
+}
+
+/* While the name field is focused the on-screen keyboard can shrink the frame,
+   and a pinned button would sit on top of the input. */
+.scr-welcome:has(.name-input:focus) .start-btn {
+  position: static;
+  filter: none;
+}
+
 /* ---------- Adventure map ---------- */
 
 .map-head {
