@@ -244,7 +244,7 @@
       o('box', 'toybox', 'Put it in the toy box'),
       o('bed', 'bed', 'Put it on the bed'),
       o('cup', 'cup', 'Put it in a cup')
-    ], 'box', 'Oops! Pick it up and plop it in the toy box.')
+    ], 'box', 'Pick it up and plop it in the toy box.')
   ];
 
   const PRACTICAL_MID = [

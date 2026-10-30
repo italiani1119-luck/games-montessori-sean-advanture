@@ -4636,4 +4636,17 @@
   background: #ececec;
 }
 
+/* ---------- Touch targets: keep the small visuals, widen the hit area to 44px ---------- */
+.adv-icon-btn {
+  width: 44px;
+  height: 44px;
+}
+
+.guide-speak::before {
+  content: '';
+  position: absolute;
+  inset: -8px;
+  border-radius: inherit;
+}
+
 
