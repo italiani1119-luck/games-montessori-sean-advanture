@@ -1,18 +1,18 @@
 'use strict';
 
-const CACHE = 'sean-v45';
+const CACHE = 'sean-v46';
 const CORE = [
   './',
   'index.html',
-  'manifest.webmanifest?v=44',
-  'css/style.css?v=44',
-  'css/adventure.css?v=44',
-  'vendor/sweetalert2/sweetalert2.min.css?v=44',
-  'js/art.js?v=44',
-  'js/content.js?v=44',
-  'js/audio.js?v=44',
-  'js/app.js?v=44',
-  'vendor/sweetalert2/sweetalert2.min.js?v=44',
+  'manifest.webmanifest?v=45',
+  'css/style.css?v=45',
+  'css/adventure.css?v=45',
+  'vendor/sweetalert2/sweetalert2.min.css?v=45',
+  'js/art.js?v=45',
+  'js/content.js?v=45',
+  'js/audio.js?v=45',
+  'js/app.js?v=45',
+  'vendor/sweetalert2/sweetalert2.min.js?v=45',
   'assets/icons/favicon.svg',
   'assets/icons/icon-192.png',
   'assets/icons/icon-512.png',

@@ -4649,4 +4649,31 @@
   border-radius: inherit;
 }
 
+/* ---------- Story: let the picture fill the screen on tall phones ---------- */
+/* The story column used to end well above the Next button on tall viewports,
+   leaving a dead band. The scene now grows into that space, capped so a very
+   tall window cannot stretch the picture without limit. */
 
+.scr-story .story-stage {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  min-height: 176px;
+  max-height: 620px;
+}
+
+.scr-story .story-stage .scene {
+  flex: 1 1 auto;
+  height: auto;
+  min-height: 176px;
+}
+
+/* Activity slides carry a demo panel under the scene: no cap, and the picture
+   may drop below the usual 176px floor to keep the panel on screen. */
+.scr-story.is-demo .story-stage {
+  max-height: none;
+}
+
+.scr-story .story-stage.has-demo .scene {
+  min-height: 146px;
+}
